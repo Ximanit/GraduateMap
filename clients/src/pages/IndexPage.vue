@@ -1,6 +1,6 @@
 <template>
   <q-page class="center">
-    <div id="map" style="width: 300px; height: 300px"></div>
+    <div id="map" style="width: 1600px; height: 920px"></div>
   </q-page>
 </template>
 
@@ -12,11 +12,15 @@ export default {
   },
   methods: {
     async getmap() {
+      var map;
+
       DG.then(function () {
-        DG.map("map", {
+        map = DG.map("map", {
           center: [54.98, 82.89],
           zoom: 13,
         });
+
+        DG.marker([54.98, 82.89]).addTo(map).bindPopup("Вы кликнули по мне!");
       });
     },
   },
