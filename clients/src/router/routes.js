@@ -1,10 +1,23 @@
+import OldMap from 'pages/OldMap.vue'
+import NewMap from 'pages/NewMap.vue'
+
+import MainLayoutVue from 'layouts/MainLayout.vue'
 
 const routes = [
   {
     path: '/',
-    component: () => import('layouts/MainLayout.vue'),
+    component: MainLayoutVue,
     children: [
-      { path: '', component: () => import('pages/IndexPage.vue') }
+      {
+        path: 'oldmap',
+        component: OldMap,
+        name: 'oldmap'
+      },
+      {
+        path: 'newmap',
+        component: NewMap,
+        name: 'newmap'
+      }
     ]
   },
 

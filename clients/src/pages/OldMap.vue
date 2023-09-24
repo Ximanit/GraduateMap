@@ -1,5 +1,5 @@
 <template>
-  <div class="center">
+  <q-card class="shadow-15" style="border-radius: 14px; top: 24px">
     <div id="map"></div>
     <q-dialog v-model="toolbar">
       <q-card>
@@ -15,7 +15,7 @@
         </q-card-section>
       </q-card>
     </q-dialog>
-  </div>
+  </q-card>
 </template>
 
 <script>
@@ -61,34 +61,7 @@ export default {
   /* width: 1920px;
   height: 1080px; */
   left: 0px;
-  position: fixed;
-  width: 1920px;
-  height: 920px;
-}
-
-.map-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0px 0px 16px;
-  gap: 16px;
-
-  position: relative;
-  width: 312px;
-  height: 437px;
-
-  background: #ffffff;
-  border-radius: 12px;
-}
-
-.img {
-  /* width: 312px;
-  height: 198px;
-  top: 0px; */
-
-  width: 312px;
-  height: 198px;
-  left: 0px;
-  top: 0px;
+  width: 1622px;
+  height: 820px;
 }
 </style>
