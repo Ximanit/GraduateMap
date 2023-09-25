@@ -2,16 +2,37 @@
   <q-card class="shadow-15" style="border-radius: 14px; top: 24px">
     <div id="map"></div>
     <q-dialog v-model="toolbar">
-      <q-card>
-        <q-toolbar>
-          <q-toolbar-title>
-            <q-img src="img"></q-img>
-          </q-toolbar-title>
-        </q-toolbar>
-
-        <q-card-section>
-          <p>Первое</p>
-          <p>Второе</p>
+      <q-card
+        style="
+          max-width: 800px;
+          width: 623px;
+          height: 450px;
+          border-radius: 24px;
+          background: #f2f2f2;
+        "
+      >
+        <q-card-section class="row" style="padding: 32px 32px 0px 32px">
+          <q-img
+            src="../resources/Gigachad.png"
+            style="width: 160px; height: 176px; margin-right: 16px"
+            class="col-1"
+          />
+          <div style="width: 400px" class="col">
+            <div
+              class="text_info"
+              style="
+                border-top: 1px solid rgb(104, 102, 102);
+                border-radius: 4px 4px 0px 0px;
+              "
+            >
+              ФИО
+            </div>
+            <div class="text_info">ФИО</div>
+            <div class="text_info">ФИО</div>
+            <div class="text_info" style="border-radius: 0px 0px 4px 4px">
+              ФИО
+            </div>
+          </div>
         </q-card-section>
       </q-card>
     </q-dialog>
@@ -63,5 +84,23 @@ export default {
   left: 0px;
   width: 1622px;
   height: 820px;
+}
+
+.text_info {
+  display: flex;
+  width: 383px;
+  height: 44px;
+
+  border-bottom: 1px solid rgb(104, 102, 102);
+  border-right: 1px solid rgb(104, 102, 102);
+  border-left: 1px solid rgb(104, 102, 102);
+  text-align: center;
+  color: rgba(35, 35, 35, 0.64);
+  font-family: Inter;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  padding: 8px 16px;
 }
 </style>
