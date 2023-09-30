@@ -17,10 +17,11 @@
     </q-header>
 
     <q-drawer
+      class="test"
       v-model="leftDrawerOpen"
       show-if-above
       bordered
-      :width="250"
+      :width="280"
       :breakpoint="600"
     >
       <q-list>
@@ -108,3 +109,9 @@ export default defineComponent({
   },
 });
 </script>
+
+<style>
+.test {
+  box-shadow: 8px 0px 40px 0px rgba(0, 0, 0, 0.25);
+}
+</style>
