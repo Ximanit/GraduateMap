@@ -1,18 +1,23 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
+    <q-header style="background-color: white; z-index: -1">
       <q-toolbar>
+        <q-toolbar-title
+          style="color: #273a48; margin-top: 10px; margin-left: 10px"
+        >
+        </q-toolbar-title>
         <q-btn
           flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
-        />
-
-        <q-toolbar-title> Карта выпускника </q-toolbar-title>
-        <div>Войти<q-btn @click="logout()" flat round icon="logout" /></div>
+          class="text-h6"
+          style="
+            color: #273a48;
+            margin-top: 20px;
+            margin-bottom: -5px;
+            text-transform: lowercase;
+          "
+        >
+          Войти<q-btn @click="logout()" flat round />
+        </q-btn>
       </q-toolbar>
     </q-header>
 
@@ -21,10 +26,10 @@
       v-model="leftDrawerOpen"
       show-if-above
       bordered
-      :width="280"
+      width="280"
       :breakpoint="600"
     >
-      <q-list>
+      <q-list class="bordered">
         <q-img
           src="../resources/image.png"
           class="q-ma-lg"
@@ -43,7 +48,7 @@
             <q-item-section avatar>
               <q-icon :name="nav.iconName" />
             </q-item-section>
-            <q-item-section class="text-h7">{{ nav.label }}</q-item-section>
+            <q-item-section class="text-h6">{{ nav.label }}</q-item-section>
           </q-item>
         </div>
       </q-list>
@@ -84,8 +89,28 @@ export default defineComponent({
           iconName: "map",
         },
         {
-          label: "Редактирование данных ",
-          route: "dataedit",
+          label: "Отправить заявку",
+          route: "send_appl",
+          iconName: "storage",
+        },
+        {
+          label: "Настройки",
+          route: "setting",
+          iconName: "storage",
+        },
+        {
+          label: "Дополнительная информация",
+          route: "more_info",
+          iconName: "storage",
+        },
+        {
+          label: "Сотрудничать",
+          route: "cooperate",
+          iconName: "storage",
+        },
+        {
+          label: "Помощь",
+          route: "help",
           iconName: "storage",
         },
       ],
@@ -93,13 +118,6 @@ export default defineComponent({
   },
   setup() {
     const leftDrawerOpen = ref(true);
-
-    return {
-      leftDrawerOpen,
-      toggleLeftDrawer() {
-        leftDrawerOpen.value = !leftDrawerOpen.value;
-      },
-    };
   },
   methods: {
     navugate(route) {
@@ -112,6 +130,12 @@ export default defineComponent({
 
 <style>
 .test {
+  background: #cfd9e8;
   box-shadow: 8px 0px 40px 0px rgba(0, 0, 0, 0.25);
 }
+/*
+.header--btn {
+  flex: auto;
+  text-align: right;
+} */
 </style>
