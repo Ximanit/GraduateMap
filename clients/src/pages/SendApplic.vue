@@ -74,7 +74,7 @@
       "
     >
       <q-card class="app_card_img">
-        <q-card-section>
+        <q-card-section class="no-padding">
           <q-img class="app_img" src="../resources/app_pic.png" />
         </q-card-section>
       </q-card>
@@ -89,8 +89,21 @@
         accept="image/*"
         @change="handleFileUpload"
       />
-      <div style="margin-top: 268px; margin-left: 88px">
-        <q-btn>Очистить</q-btn> <q-btn>Отправить заявку</q-btn>
+      <div class="column" style="margin-top: 268px; margin-left: 88px">
+        <q-btn
+          class="q-mb-sm"
+          style="width: 275px; background: #cbd4e2; text-transform: capitalize"
+          >Очистить</q-btn
+        >
+        <q-btn
+          style="
+            width: 275px;
+            background: #273a48;
+            color: #ffffff;
+            text-transform: capitalize;
+          "
+          >Отправить заявку</q-btn
+        >
       </div>
     </div>
   </div>
@@ -135,7 +148,7 @@ export default {
 
 .app_card_img {
   height: 100%;
-  max-height: 355px;
+  max-height: 307px;
   margin-left: 88px;
   margin-top: 25px;
   background: rgba(207, 217, 232, 0.32);
@@ -145,8 +158,7 @@ export default {
 }
 
 .app_img {
-  margin-left: -20px;
-  width: 243px;
+  width: 211px;
   height: 100%;
 }
 
