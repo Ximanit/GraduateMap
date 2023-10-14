@@ -64,29 +64,53 @@ class authController {
                 username,
                 password
             } = req.body
+
+            // // Проверка username с использованием регулярного выражения
+            // const usernameRegex = /^([\w]+\.?)+(?<!\.)@(?!\.)[a-zа-я0-9ё\.-]+\.?[a-zа-яё]{2,}$/ui;
+            // if (!usernameRegex.test(username)) {
+            //     return res.status(400).json({
+            //         message: "Некорректный формат логина"
+            //     })
+            // }
+
+            // // Проверка пароля с использованием регулярного выражения
+            // const passwordRegex = /^[a-zA-Z._0-9]+$/;
+            // if (!passwordRegex.test(password)) {
+            //     return res.status(400).json({
+            //         message: "Пароль должен содержать только буквы a-z, A-Z, цифры 0-9, точку (.) и символ подчеркивания (_)"
+            //     })
+            // }
+
             const user = await User.findOne({
                 username
             })
+
             if (!user) {
-                return res.json({
-                    message: `User with that ${username} dont find`
+                return res.status(400).json({
+                    message: `Пользователь с логином ${username} не найден`
                 })
             }
             const validPassword = bcrypt.compareSync(password, user.password)
             if (!validPassword) {
-                return res.json({
-                    message: `Passwortd dont current`
+                return res.status(400).json({
+                    message: `Пароль не правильный`
                 })
             }
+            const name = user.name;
+            const user_id = user._id;
+            const roles = user.roles;
             const token = generateAccesToken(user._id, user.roles)
             return res.json({
-                token
+                token: token,
+                name: name,
+                roles: roles,
+                id: user_id,
             })
 
         } catch (error) {
             console.log(error)
             res.status(400).json({
-                message: 'Error with registration'
+                message: 'Ошибка при авторизации'
             })
         }
     }
