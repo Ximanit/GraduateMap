@@ -1,25 +1,11 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header style="background-color: white; z-index: -1">
-      <q-toolbar>
-        <q-toolbar-title
-          style="color: #273a48; margin-top: 10px; margin-left: 10px"
-        >
-        </q-toolbar-title>
-        <q-btn
-          flat
-          class="text-h6"
-          style="
-            color: #273a48;
-            margin-top: 20px;
-            margin-bottom: -5px;
-            text-transform: lowercase;
-          "
-        >
-          Войти<q-btn @click="logout()" flat round />
-        </q-btn>
-      </q-toolbar>
-    </q-header>
+    <q-btn
+      class="text-capitalize text-h6 fixed-right"
+      style="width: 90px; height: 50px; margin: 50px 30px 30px 0px; z-index: 2"
+      label="Выйти"
+      @click="logout()"
+    />
 
     <q-drawer
       class="test"
@@ -65,6 +51,7 @@
 <script>
 import { defineComponent, ref } from "vue";
 import EssentialLink from "components/EssentialLink.vue";
+import VueCookies from "vue-cookies";
 
 export default defineComponent({
   name: "MainLayout",
@@ -124,6 +111,35 @@ export default defineComponent({
       this.currentRoute = route;
       this.$router.push({ name: this.currentRoute });
     },
+    reroute() {
+      if (!VueCookies.get("token")) {
+        this.$router.replace("/auth");
+      }
+    },
+    logout() {
+      if (!VueCookies.get("token")) {
+        this.$router.replace("/auth");
+      } else {
+        VueCookies.remove("token");
+        this.$router.replace("/auth");
+      }
+    },
+  },
+  beforeMount() {
+    this.reroute();
+    if (!this.$route.name) {
+      this.currentRoute = this.navigation[0].route;
+    } else {
+      this.currentRoute = this.$route.name;
+    }
+
+    if (this.$router.currentRoute.value.fullPath == "/") {
+      this.$router.push({ name: this.currentRoute });
+    }
+  },
+  beforeUpdate() {
+    this.reroute();
+    this.$router.push({ name: this.currentRoute });
   },
 });
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <q-card style="border-radius: 14px; top: 24px">
+  <q-card style="border-radius: 14px; top: 125px">
     <div id="map"></div>
     <q-dialog v-model="toolbar">
       <q-card
@@ -106,7 +106,7 @@ export default {
   /* width: 1920px;
   height: 1080px; */
   left: 0px;
-  width: 1593px;
+  width: 100%;
   height: 850px;
 }
 

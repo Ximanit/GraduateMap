@@ -10,7 +10,7 @@ import axios from 'axios'
 // "export default () => {}" function below (which runs individually
 // for each client)
 const api = axios.create({
-  baseURL: 'http://localhost:5000'
+  baseURL: 'http://localhost:5000/'
 })
 
 export default boot(({

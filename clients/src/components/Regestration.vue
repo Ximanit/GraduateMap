@@ -1,10 +1,18 @@
 <template>
-  <q-card flat>
-    <q-card-section>
-      <q-input filled v-model="name" label="Имя пользователя" />
-      <q-separator></q-separator>
+  <q-card flat style="background-color: #cfd9e8">
+    <q-card-section
+      class="q-pa-none q-pt-md"
+      style="gap: 10px; display: flex; flex-direction: column"
+    >
+      <q-input
+        class="text-weight-medium"
+        filled
+        v-model="name"
+        label="Имя пользователя"
+      />
+      <!-- <q-separator></q-separator> -->
       <q-input filled v-model="username" label="Логин" />
-      <q-separator></q-separator>
+      <!-- <q-separator></q-separator> -->
       <q-input
         filled
         v-model="password"
@@ -19,15 +27,21 @@
           ></q-icon>
         </template>
       </q-input>
-      <q-separator></q-separator>
       <q-input
         filled
         v-model="password_agan"
-        :type="isPwd ? 'password' : 'text'"
+        :type="isPwd_1 ? 'password' : 'text'"
         label="Подтверждение пароля"
+      >
+        <template v-slot:append>
+          <q-icon
+            :name="isPwd_1 ? 'visibility_off' : 'visibility'"
+            class="cursor-pointer"
+            @click="isPwd_1 = !isPwd_1"
+          ></q-icon> </template
       ></q-input>
     </q-card-section>
-    <q-card-section>
+    <q-card-section class="q-pa-none q-pt-md">
       <q-btn flat label="Зарегистрироваться" @click="register" class="button" />
     </q-card-section>
   </q-card>
@@ -46,6 +60,7 @@ export default {
       password: "",
       password_agan: "",
       isPwd: ref(true),
+      isPwd_1: ref(true),
     };
   },
   methods: {
@@ -141,7 +156,9 @@ export default {
 </script>
 <style scoped>
 .button {
-  background-color: rgba(7, 7, 7, 0.05);
+  background-color: #273a48;
   width: 100%;
+  height: 45px;
+  color: #ffffff;
 }
 </style>

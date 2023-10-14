@@ -1,8 +1,11 @@
 <template>
-  <q-card flat>
-    <q-card-section>
+  <q-card flat style="background-color: #cfd9e8">
+    <q-card-section
+      class="q-pa-none q-pt-md"
+      style="gap: 10px; display: flex; flex-direction: column"
+    >
       <q-input filled v-model="username" label="Логин" />
-      <q-separator></q-separator>
+      <!-- <q-separator></q-separator> -->
       <q-input
         filled
         v-model="password"
@@ -19,7 +22,7 @@
       </q-input>
     </q-card-section>
 
-    <q-card-section>
+    <q-card-section class="q-pa-none q-pt-md">
       <q-btn flat label="Войти" @click="login" class="button" />
     </q-card-section>
   </q-card>
@@ -73,14 +76,27 @@ export default {
         const token = response.data.token;
         const username = this.username;
         const name = response.data.name;
+        const roles = response.data.roles;
+
+        console.log(roles);
+
         VueCookies.set("token", token, "1h");
         VueCookies.set("uname", name, "10h");
         VueCookies.set("login", username, "10h");
+        VueCookies.set("roles", roles, "10h");
+
         this.$q.notify({
           type: "positive",
           message: "Пользователь успешно авторизован.",
         });
-        this.$router.replace("/");
+
+        if (roles[0] == "ADMIN" || roles[0] == "MODERATOR") {
+          this.$router.replace("/help");
+        } else if (roles[0] == "USER") {
+          this.$router.replace("/oldmap");
+        }
+
+        // this.$router.replace("/");
       } catch (error) {
         this.onError(error);
       }
@@ -90,7 +106,8 @@ export default {
 </script>
 <style scoped>
 .button {
-  background-color: rgba(7, 7, 7, 0.05);
+  background-color: #273a48;
   width: 100%;
+  color: #ffffff;
 }
 </style>

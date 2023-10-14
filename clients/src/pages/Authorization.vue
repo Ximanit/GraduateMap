@@ -1,19 +1,17 @@
 <template>
   <div>
-    <q-card class="my-card" flat bordered>
+    <q-card class="my-card">
       <q-card-section>
-        <div class="text-h5 text-center caption-text">Вход в систему</div>
+        <div class="text-h5 text-center caption-text no-padding">
+          Вход в систему
+        </div>
       </q-card-section>
-      <q-tabs v-model="tab" active-color="white" class="text-teal">
-        <q-tab
-          v-for="panel in tabPanels"
-          :label="panel.lable"
-          :name="panel.name"
-          class="text"
-          @click="changeTab()"
-        />
-      </q-tabs>
-      <q-separator />
+      <q-card-section class="no-padding">
+        <q-tabs v-model="tab" active-color="white">
+          <q-tab name="login" label="Авторизация" @click="changeTab()" />
+          <q-tab name="registr" label="Регистрация" @click="changeTab()" />
+        </q-tabs>
+      </q-card-section>
       <router-view></router-view>
     </q-card>
   </div>
@@ -69,13 +67,15 @@ export default {
 }
 
 .caption-text {
-  color: rgb(255, 255, 255);
-  opacity: 0.8;
+  color: #273a48;
+  opacity: 1.2;
 }
 
 .my-card {
-  width: 450px;
-  height: 250px;
-  background-color: rgba(7, 7, 7, 0.288);
+  width: 400px;
+  height: 100%;
+  background: #cfd9e8;
+  border-radius: 24px;
+  padding: 32px 40px;
 }
 </style>

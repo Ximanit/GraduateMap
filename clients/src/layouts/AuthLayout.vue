@@ -1,5 +1,5 @@
 <template>
-  <div class="test">
+  <div>
     <authorization class="absolute-center"></authorization>
   </div>
 </template>
@@ -16,6 +16,6 @@ export default {
 
 <style lang="css" scoped>
 .test {
-  background-color: rgb(80, 88, 75);
+  background-color: #cfd9e8;
 }
 </style>

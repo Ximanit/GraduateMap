@@ -1,109 +1,115 @@
 <template>
-  <div class="text-h6 appl_title">Заполнить анкету</div>
-  <div class="app_cont">
-    <q-form class="q-px-lg q-py-lg app_form">
-      <q-input
-        style="border-radius: 8px"
-        outlined
-        v-model="username"
-        label="Ваше имя"
-      />
-      <q-input
-        style="border-radius: 8px"
-        outlined
-        v-model="theme"
-        label="E-mail"
-      />
-      <q-input
-        style="border-radius: 8px"
-        outlined
-        v-model="username"
-        label="Год выпуска"
-      />
-      <q-input
-        style="border-radius: 8px"
-        outlined
-        v-model="theme"
-        label="№ выпускного диплома"
-      />
-      <q-input
-        style="border-radius: 8px"
-        outlined
-        v-model="username"
-        label="Учебное учереждение"
-      />
-      <q-input
-        style="border-radius: 8px"
-        outlined
-        v-model="theme"
-        label="Направление обучения"
-      />
-      <q-input
-        style="border-radius: 8px"
-        outlined
-        v-model="theme"
-        label="Ваш город"
-      />
-      <q-input
-        style="border-radius: 8px"
-        outlined
-        v-model="text"
-        label="Ваше место работы/учебы"
-      />
-      <q-input
-        style="border-radius: 8px"
-        outlined
-        v-model="text"
-        label="Обращение к модератору"
-        autogrow
-      />
-      <q-input
-        style="border-radius: 8px"
-        outlined
-        v-model="text"
-        type="textarea"
-        label="Напутственные слова"
-      />
-    </q-form>
-    <div
-      style="
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      "
-    >
-      <q-card class="app_card_img">
-        <q-card-section class="no-padding">
-          <q-img class="app_img" src="../resources/app_pic.png" />
-        </q-card-section>
-      </q-card>
-
-      <q-btn class="app_img_upload" flat @click="openFileExplorer"
-        >Загрузить фотографию</q-btn
+  <div style="margin-top: 100px">
+    <div class="text-h6 appl_title">Заполнить анкету</div>
+    <div class="app_cont">
+      <q-form class="q-px-lg q-py-lg app_form">
+        <q-input
+          style="border-radius: 8px"
+          outlined
+          v-model="username"
+          label="Ваше имя"
+        />
+        <q-input
+          style="border-radius: 8px"
+          outlined
+          v-model="theme"
+          label="E-mail"
+        />
+        <q-input
+          style="border-radius: 8px"
+          outlined
+          v-model="username"
+          label="Год выпуска"
+        />
+        <q-input
+          style="border-radius: 8px"
+          outlined
+          v-model="theme"
+          label="№ выпускного диплома"
+        />
+        <q-input
+          style="border-radius: 8px"
+          outlined
+          v-model="username"
+          label="Учебное учереждение"
+        />
+        <q-input
+          style="border-radius: 8px"
+          outlined
+          v-model="theme"
+          label="Направление обучения"
+        />
+        <q-input
+          style="border-radius: 8px"
+          outlined
+          v-model="theme"
+          label="Ваш город"
+        />
+        <q-input
+          style="border-radius: 8px"
+          outlined
+          v-model="text"
+          label="Ваше место работы/учебы"
+        />
+        <q-input
+          style="border-radius: 8px"
+          outlined
+          v-model="text"
+          label="Обращение к модератору"
+          autogrow
+        />
+        <q-input
+          style="border-radius: 8px"
+          outlined
+          v-model="text"
+          type="textarea"
+          label="Напутственные слова"
+        />
+      </q-form>
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        "
       >
-      <input
-        type="file"
-        ref="fileInput"
-        style="display: none"
-        accept="image/*"
-        @change="handleFileUpload"
-      />
-      <div class="column" style="margin-top: 268px; margin-left: 88px">
-        <q-btn
-          class="q-mb-sm"
-          style="width: 275px; background: #cbd4e2; text-transform: capitalize"
-          >Очистить</q-btn
+        <q-card class="app_card_img">
+          <q-card-section class="no-padding">
+            <q-img class="app_img" src="../resources/app_pic.png" />
+          </q-card-section>
+        </q-card>
+
+        <q-btn class="app_img_upload" flat @click="openFileExplorer"
+          >Загрузить фотографию</q-btn
         >
-        <q-btn
-          style="
-            width: 275px;
-            background: #273a48;
-            color: #ffffff;
-            text-transform: capitalize;
-          "
-          >Отправить заявку</q-btn
-        >
+        <input
+          type="file"
+          ref="fileInput"
+          style="display: none"
+          accept="image/*"
+          @change="handleFileUpload"
+        />
+        <div class="column" style="margin-top: 268px; margin-left: 88px">
+          <q-btn
+            class="q-mb-sm"
+            style="
+              width: 275px;
+              background: #cbd4e2;
+              text-transform: capitalize;
+            "
+            >Очистить</q-btn
+          >
+          <q-btn
+            style="
+              width: 275px;
+              background: #273a48;
+              color: #ffffff;
+              text-transform: capitalize;
+            "
+            >Отправить заявку</q-btn
+          >
+        </div>
       </div>
     </div>
   </div>
