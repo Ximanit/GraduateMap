@@ -93,7 +93,7 @@ export default {
         if (roles[0] == "ADMIN" || roles[0] == "MODERATOR") {
           this.$router.replace("/help");
         } else if (roles[0] == "USER") {
-          this.$router.replace("/oldmap");
+          this.$router.replace("/userMain");
         }
 
         // this.$router.replace("/");

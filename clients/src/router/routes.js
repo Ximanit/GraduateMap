@@ -5,6 +5,7 @@ import SendApplicVue from 'src/pages/SendApplic.vue'
 
 import MainLayoutVue from 'layouts/MainLayout.vue'
 import AuthLayout from 'layouts/AuthLayout.vue'
+import UserLayout from 'layouts/UserLayout.vue'
 
 import Login from 'components/Login.vue'
 import Register from 'components/Regestration.vue'
@@ -53,6 +54,10 @@ const routes = [
       },
 
     ]
+  },
+  {
+    path:'/userMain',
+    component : UserLayout
   },
 
   // Always leave this as last one,
